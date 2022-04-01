@@ -3,6 +3,7 @@ import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
 import { GetServerSideProps } from 'next'
 import { sanityClient, urlFor } from '../../sanity'
 import { Collection } from '../../typings'
+import Link from 'next/link'
 
 interface Props {
   collection: Collection
@@ -40,13 +41,15 @@ function NFTDropPage({ collection }: Props) {
       <div className="flex flex-1 flex-col p-12 lg:col-span-6 ">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <h1 className="w-52 cursor-pointer text-xl font-extralight sm:w-80">
-            The{' '}
-            <span className="font-extrabold underline decoration-pink-600/50">
-              PAPAFAM
-            </span>{' '}
-            NFT Market Place
-          </h1>
+          <Link href="/">
+            <h1 className="w-52 cursor-pointer text-xl font-extralight sm:w-80">
+              The{' '}
+              <span className="font-extrabold underline decoration-pink-600/50">
+                PAPAFAM
+              </span>{' '}
+              NFT Market Place
+            </h1>
+          </Link>
           <button
             onClick={() => (address ? disconnect() : connectWithMetamask())}
             className="rounded-full bg-rose-400 px-4 py-2 text-white lg:px-5 lg:py-3 lg:text-base"
